@@ -1,4 +1,4 @@
-const { Web3 } = require('web3'); // destructure Web3
+const { Web3 } = require('web3'); 
 let web3;
 
 module.exports = {

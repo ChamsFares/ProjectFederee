@@ -17,7 +17,6 @@ exports.votePoll = async (req, res, next) => {
     const { optionIndex } = req.body;
     const poll = await Poll.findById(req.params.pollId);
     if (!poll) return res.status(404).json({ error: 'Poll not found' });
-    // ensure not voted
     const existing = await Vote.findOne({ poll: poll._id, user: req.user._id });
     if (existing) return res.status(400).json({ error: 'Already voted' });
     await contract.methods.vote(poll.onChainId, optionIndex).send({ from: req.user.walletAddress });
