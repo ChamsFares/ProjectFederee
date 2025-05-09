@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'discussion_page.dart';
 import 'collaboration_page.dart';
 import 'about_page.dart';
+import 'profile_page.dart';
+import 'event_calendar_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -10,12 +12,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final TextEditingController _postController = TextEditingController();
-  List<String> posts = [];
+  List<Map<String, String>> posts = [];
 
   void _addPost() {
-    if (_postController.text.isNotEmpty) {
+    if (_postController.text.trim().isNotEmpty) {
       setState(() {
-        posts.insert(0, _postController.text);
+        posts.insert(
+            0, {"name": "User Name", "content": _postController.text.trim()});
       });
       _postController.clear();
     }
@@ -35,7 +38,6 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: [
-          // **Post creation area**
           Padding(
             padding: EdgeInsets.all(10),
             child: Row(
@@ -58,13 +60,14 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Divider(),
-
-          // **Display posts dynamically**
           Expanded(
             child: ListView.builder(
               itemCount: posts.length,
               itemBuilder: (context, index) {
-                return PostWidget(content: posts[index]);
+                return PostWidget(
+                  userName: posts[index]["name"]!,
+                  content: posts[index]["content"]!,
+                );
               },
             ),
           ),
@@ -75,7 +78,13 @@ class _HomePageState extends State<HomePage> {
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.white,
         onTap: (index) {
-          if (index == 2) {
+          if (index == 1) {
+            // Event button
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => EventCalendarPage()),
+            );
+          } else if (index == 2) {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => CollaborationPage()),
@@ -90,6 +99,12 @@ class _HomePageState extends State<HomePage> {
               context,
               MaterialPageRoute(builder: (context) => AboutPage()),
             );
+          } else if (index == 5) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => ProfilePage(userName: "User Name")),
+            );
           }
         },
         items: [
@@ -99,6 +114,7 @@ class _HomePageState extends State<HomePage> {
               icon: Icon(Icons.group), label: 'Collaboration'),
           BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Discussion'),
           BottomNavigationBarItem(icon: Icon(Icons.info), label: 'About'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),
     );
@@ -106,9 +122,10 @@ class _HomePageState extends State<HomePage> {
 }
 
 class PostWidget extends StatelessWidget {
+  final String userName;
   final String content;
 
-  PostWidget({required this.content});
+  PostWidget({required this.userName, required this.content});
 
   @override
   Widget build(BuildContext context) {
@@ -117,8 +134,21 @@ class PostWidget extends StatelessWidget {
       child: Column(
         children: [
           ListTile(
-            leading: CircleAvatar(backgroundColor: Colors.black),
-            title: Text('Your Name'),
+            leading: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProfilePage(userName: userName),
+                  ),
+                );
+              },
+              child: CircleAvatar(
+                backgroundColor: Colors.black,
+                child: Text(userName[0], style: TextStyle(color: Colors.white)),
+              ),
+            ),
+            title: Text(userName),
             subtitle: Text(content),
           ),
           Row(
