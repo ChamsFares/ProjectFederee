@@ -1,0 +1,31 @@
+.option-button {
+    display: flex;
+    align-items: center;
+    margin: 10px auto;
+    cursor: pointer;
+    max-width: 200px;
+  }
+  
+  .circle {
+    background-color: #111;
+    color: white;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+  }
+  
+  .option-bar {
+    background: white;
+    height: 30px;
+    width: 100px;
+    border-radius: 15px;
+  }
+  
+  .selected .circle {
+    background-color: #555;
+  }
+  

@@ -1,0 +1,160 @@
+
+.main-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  min-height: 100vh;
+  background-color: #f8f7f725;
+  padding: 1rem;
+}
+
+.card {
+  background: rgba(190, 186, 186, 0.077);
+  border-radius: 1rem;
+  padding: 3rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.125);
+}
+
+.sidebar-left, .sidebar-right {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.profile-card .profile-content {
+  text-align: center;
+  
+  
+}
+
+.profile-pic {
+  width:6rem;
+  height: 6rem;
+  background: rgb(0, 0, 0);
+  border-radius: 9999px;
+  margin: 0 auto 5rem;
+}
+
+.profile-name {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.profile-profession {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.main-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border-radius: 1.5rem;
+  padding: 3rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.153);
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo {
+  width: 3rem;
+  height: 2rem;
+}
+
+.navbar-right {
+  display: flex;
+  gap: 1rem;
+  font-weight: bold;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-item.active {
+  color: #2564ebfb;
+}
+
+.post-box .post-input {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.post-avatar {
+  width: 3rem;
+  height: 3rem;
+  background: #68696a6c;
+  border-radius: 9999px;
+}
+
+.post-options {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.post-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.875rem;
+}
+
+.post {
+  padding: 1rem;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-avatar-sm {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #37383956;
+  border-radius: 9999px;
+}
+
+.post-author {
+  font-weight: 600;
+}
+
+.post-menu {
+  margin-left: auto;
+}
+
+.post-actions {
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.875rem;
+  color: #6b7280;
+  padding-top: 0.5rem;
+}
+
+.news-title {
+  font-weight: bold;
+  font-size: 2rem;
+  height: 31rem;
+}

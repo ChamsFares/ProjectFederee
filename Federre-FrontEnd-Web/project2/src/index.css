@@ -1,0 +1,31 @@
+/* Remise à zéro des styles par défaut */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Définir une police lisible */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #d9d9d9;
+  color: #000;
+}
+
+/* Rendre tous les boutons propres */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Supprimer la décoration des liens */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Pour que la hauteur prenne tout l'écran */
+html, body, #root {
+  height: 100%;
+}

@@ -1,0 +1,28 @@
+.sidebar {
+    width: 25%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .conversation-list {
+    margin-top: 1rem;
+    overflow-y: auto;
+    flex-grow: 1;
+  }
+  
+  .conversation-item {
+    height: 50px;
+    background: #e0e0e0;
+    margin-bottom: 0.5rem;
+    border-radius: 20px;
+  }
+  

@@ -1,0 +1,25 @@
+.vote-container {
+    background: #b3b3b3;
+    width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+  }
+  
+  h2 {
+    font-family: 'Comic Sans MS', cursive;
+  }
+  
+  .change-button {
+    margin-top: 30px;
+    padding: 10px 20px;
+    background: #d3d3d3;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 18px;
+    color: #555;
+    cursor: pointer;
+  }
+  
